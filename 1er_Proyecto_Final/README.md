@@ -1,14 +1,15 @@
 # 🍴 Lima Restaurant🍔
 
-## Integrante
+## Integrante 🎏
 
 👒 Alison Janise Paico Quispe
 
-Github: @alison304
-Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
+- Github: @alison304
+- Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
 
 -----------------------
-##Acerca del proyecto
+## Acerca del proyecto 🍴
+
 Desarrollado en VUE CLI 2
 
 ## Configuración del proyecto
