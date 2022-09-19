@@ -1,13 +1,22 @@
-# componentes-cli
+# 🍴 Lima Restaurant🍔
 
-## Project setup
+## Integrante
+
+👒 Alison Janise Paico Quispe
+
+Github: @alison304
+Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
+
+-----------------------
+##Acerca del proyecto
+Desarrollado en VUE CLI 2
+
+## Configuración del proyecto
 ```
-npm install
+- Instalar dependencias ---- npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+### Compila y carga para el desarrollo ---- npm run serve
 ```
 
 ### Compiles and minifies for production
