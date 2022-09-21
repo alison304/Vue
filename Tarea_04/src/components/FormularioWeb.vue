@@ -1,9 +1,17 @@
 <template>
 	<div class="container">
-		<form action="">
+		<form action="" @submit="checkForm">
+			<p v-if="errors.length">
+				<b>Please correct the following error(s):</b>
+				<ul>
+					<li v-for="error in errors" :key="error">
+						{{ error }}
+					</li>
+				</ul>
+			</p>
 			<div class="row justify-content-center">
 				<div class="col col-6">
-					<br /><br />
+					<p>FORMULARIO DE DATOS</p>
 					<label for="inputNombre" class="text-start">Name</label>
 					<input type="text" class="form-control" id="inputNombre" placeholder="Name" 
 					v-model="name"/>
@@ -30,7 +38,7 @@
 						<div class="col-10"></div>
 						<br />
 						<div class="col-2">
-							<input @click="addPerson()" class="btn btn-primary" value="Add" />
+							<input type="submit" class="btn btn-primary" value="Agregar" />
 						</div>
 						<br />
 					</div>
@@ -43,11 +51,10 @@
 <script>
 export default {
 	name: "FormularioWeb",
-	components: {
-
-},
+	components: {},
 	data() {
 		return {
+			errors: [],
 			name: "",
 			lastName: "",
 			email: "",
@@ -59,12 +66,37 @@ export default {
 		}
 	},
     methods:{
+		checkForm: function (e) {
+			this.errors = [];
+			if (!this.name){
+				this.errors.push("Name required.");
+			}
+			if (!this.lastName) {
+				this.errors.push("LastName required.");
+			}
+			if (!this.age) {
+				this.errors.push("Age required.");
+			}
+			if (!this.email) {
+				this.errors.push("Email required.");
+			} else if (!this.validEmail(this.email)) {
+				this.errors.push('Valid email required.');
+			}
+			if (!this.errors.length) {
+				this.addPerson();
+			}
+			e.preventDefault();
+		},
+		validEmail: function (email) {
+			var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		},
         addPerson(){
 			let person = {
 				name: this.name,
 				lastName: this.lastName,
-				email: this.email,
 				age: this.age,
+				email: this.email,
 			}
 			this.people.push(person);
 			this.cleanFields();
