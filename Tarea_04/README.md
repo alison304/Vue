@@ -7,10 +7,11 @@
 - Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
 
 -----------------------
-## Acerca de
+## Acerca de 🈸
 
 Desarrollado en VUE CLI 2, es un formulario de datos con validación de campos, que guarda los datos en una tabla.
 
+-----------------------
 ## Configuración del proyecto
 ```
 - Instalar dependencias ---- npm install
