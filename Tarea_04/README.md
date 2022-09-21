@@ -9,7 +9,7 @@
 -----------------------
 ## Acerca de
 
-Desarrollado en VUE CLI 2, es un formulario de datos con validación, que guarda los datos en una tabla.
+Desarrollado en VUE CLI 2, es un formulario de datos con validación de campos, que guarda los datos en una tabla.
 
 ## Configuración del proyecto
 ```
