@@ -24,7 +24,7 @@
     <br />
 					<label for="inputEdad" class="form-label text-start">Age</label>
 					<input type="number" class="form-control" id="inputEdad" placeholder="Age" 
-					v-model="age"/>
+					v-model="age" min="1" max="99"/>
 					<p>Validate Age: <span class="text-success fw-bold">{{age}}</span></p>
 					<br />
 					<label for="inputEmail" class="form-label text-start">Email</label>
@@ -58,7 +58,7 @@ export default {
 			name: "",
 			lastName: "",
 			email: "",
-			age:0,
+			age:"",
 			people: [
 
 			],
