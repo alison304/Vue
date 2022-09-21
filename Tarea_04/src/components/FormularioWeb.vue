@@ -7,9 +7,10 @@
 						{{ error }}
 					</div>
 			</FormItem>
+			<br />
 			<div class="row justify-content-center">
 				<div class="col col-6">
-					<p>FORMULARIO DE DATOS</p>
+					<p style="font-weight: bold; font-size:x-large">FORMULARIO DE DATOS</p>
 					<label for="inputNombre" class="text-start">Name</label>
 					<input type="text" class="form-control" id="inputNombre" placeholder="Name" 
 					v-model="name"/>
@@ -36,12 +37,12 @@
 						<div class="col-10"></div>
 						<br />
 						<div class="col-2">
-							<input type="submit" class="btn btn-primary" value="Agregar" />
+							<input type="submit" class="btn btn-outline-warning btn-lg" value="AGREGAR" />
 						</div>
-						<br />
 					</div>
 				</div>
 			</div>
+			<br />
 		</form>
 		<b-table striped hover :items="people"></b-table>
 	</div>
@@ -77,17 +78,13 @@ export default {
 			}
 			if (!this.email) {
 				this.errors.push("Email required.");
-			} else if (!this.validEmail(this.email)) {
+			} else if (!this.validateEmail(this.email)) {
 				this.errors.push('Valid email required.');
 			}
 			if (!this.errors.length) {
 				this.addPerson();
 			}
 			e.preventDefault();
-		},
-		validEmail: function (email) {
-			var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			return re.test(email);
 		},
         addPerson(){
 			let person = {
@@ -104,7 +101,15 @@ export default {
 			this.lastName = "";			
 			this.email = "";
 			this.age = 0;			
-        },		
+        },
+		validateEmail(email){
+			var re = /\S+@\S+\.\S+/;
+			if(email.match(re)) {
+				return true;
+			} else {
+				return false;
+			}
+		},
     },
 };
 </script>
