@@ -14,23 +14,19 @@
 					<label for="inputNombre" class="text-start">Name</label>
 					<input type="text" class="form-control" id="inputNombre" placeholder="Name" 
 					v-model="name"/>
-					<p>Validate Name: <span class="text-success fw-bold">{{name}}</span></p>
 					<br />
         <label for="inputApellido" class="text-start">LastName</label>
 					<input type="text" class="form-control" id="inputApellido" placeholder="LastName" 
 					v-model="lastName"/>
-					<p>Validate LastName: <span class="text-success fw-bold">{{lastName}}</span></p>
-    <br />
+					<br />
 					<label for="inputEdad" class="form-label text-start">Age</label>
 					<input type="number" class="form-control" id="inputEdad" placeholder="Age" 
 					v-model="age" min="1" max="99"/>
-					<p>Validate Age: <span class="text-success fw-bold">{{age}}</span></p>
 					<br />
 					<label for="inputEmail" class="form-label text-start">Email</label>
 					<input type="email" class="form-control" id="inputEmail" placeholder="you@email.com" 
 					v-model="email"/>
-					<p>Validate Email: <span class="text-success fw-bold">{{email}}</span></p>
-    <br />
+					<br />
 					<hr />
 					<div class="row">
 						<br />
@@ -44,6 +40,7 @@
 			</div>
 			<br />
 		</form>
+		<br />
 		<b-table striped hover :items="people"></b-table>
 	</div>
 </template>
@@ -115,10 +112,4 @@ export default {
 </script>
 
 <style scoped>
-	a {
-		color: #42b983;
-	}
-	label {
-		margin-left: 0.5em !important;
-	}
 </style>
