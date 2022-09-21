@@ -1,15 +1,22 @@
-# vue-cli-formulario
+# 🈸 Formulario de Datos 🈸
+## Integrante 🎏
 
-## Project setup
-```
-npm install
-```
+👒 Alison Janise Paico Quispe
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- Github: @alison304
+- Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
 
+-----------------------
+## Acerca de
+
+Desarrollado en VUE CLI 2, es un formulario de datos con validación, que guarda los datos en una tabla.
+
+## Configuración del proyecto
+```
+- Instalar dependencias ---- npm install
+- Compila y carga para el desarrollo ---- npm run serve
+
+```
 ### Compiles and minifies for production
 ```
 npm run build
