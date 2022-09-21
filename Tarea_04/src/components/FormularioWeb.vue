@@ -1,14 +1,12 @@
 <template>
 	<div class="container">
 		<form action="" @submit="checkForm">
-			<p v-if="errors.length">
+			<FormItem v-if="errors.length">
 				<b>Please correct the following error(s):</b>
-				<ul>
-					<li v-for="error in errors" :key="error">
+					<div v-for="error in errors" :key="error">
 						{{ error }}
-					</li>
-				</ul>
-			</p>
+					</div>
+			</FormItem>
 			<div class="row justify-content-center">
 				<div class="col col-6">
 					<p>FORMULARIO DE DATOS</p>
