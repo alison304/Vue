@@ -1,6 +1,5 @@
 <template>
 	<div class="fcc m-0">
-		<!-- <img class="p-2" height="170" src="../../public/lima_restaurant.png"> -->
 		<form action="" @submit="checkForm">
 			<FormItem v-if="errors.length">
 				<b>Please correct the following error(s):</b>
@@ -14,17 +13,11 @@
 					v-model="email"/>
 			</div>
 			<div class="fc my-3">
-				<label for="inputpassword" class="form-label text-start">Contraseña</label>
+				<label class="form-label text-start">Contraseña</label>
 				<input type="password" class="form-control" v-model="password" required name="password">
-				<field-messages>
-					<div class="text-success">Correcto!</div>
-					<div slot="required">El campo es obligatorio</div>
-					<div slot="validator">El campo tiene mayor a 8 caracteres</div>
-				</field-messages>
 			</div> 
 			<button type="submit" class="btn btn-success">INGRESAR</button>
-		</form>		
-		<br>
+		</form>
 	</div>
 </template>
 
@@ -39,13 +32,6 @@ export default {
 			password: ''
 	}},
 	methods:{
-		onSubmit(){
-			if (this.formState.$invalid) {
-				alert("ERROR EN EL FORMULARIO")
-				return
-			}
-			alert("FORMULARIO ENVIADO")
-		},
 		passwordValidator: function (value) {
 			let res = true
 			if (value.length > 8) {
@@ -89,30 +75,6 @@ export default {
 		},
 	},
 };
-/*
-// ...
-<validate :custom="{customValidator: customValidator, 'email-available': isEmailAvailable}">
-  <input v-model="something" name="something" />
-  <!--
-    slot name inside field-messages would be: <div slot="customValidator">...</div>
-  -->
-</validate>
- 
-//...
- 
-methods: {
-  customValidator: function (value) {
-    // return true to set input as $valid, false to set as $invalid
-    return value === 'custom';
-  }
-},
-computed: {
-  isEmailAvailable: function () {
-    // return true to set input as $valid, false to set as $invalid
-  }
-}
-
-*/
 </script>
 
 <style scoped>
