@@ -1,6 +1,6 @@
 <template>
 	<div class="fcc m-0">
-		<img class="p-2" height="170" src="../../public/lima_restaurant.png">
+		<!-- <img class="p-2" height="170" src="../../public/lima_restaurant.png"> -->
 		<form action="" @submit="checkForm">
 			<FormItem v-if="errors.length">
 				<b>Please correct the following error(s):</b>
@@ -23,7 +23,7 @@
 				</field-messages>
 			</div> 
 			<button type="submit" class="btn btn-success">INGRESAR</button>
-		</form>
+		</form>		
 		<br>
 	</div>
 </template>
@@ -74,8 +74,10 @@ export default {
 			if (this.password.length < 6) {
 				this.errors.push("Password must have 6 characters.");
 			}
-			// if (!this.errors.length) {
-			// }
+			if (!this.errors.length) {
+				console.log('router');
+				this.$router.replace('/shoppingCart');
+			}
 		},
 		validateEmail(email){
 			var re = /\S+@\S+\.\S+/;

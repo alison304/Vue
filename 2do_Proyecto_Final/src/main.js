@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import VueForm from 'vue-form'
 import Home from './views/HomeIndex.vue'
 import LoginForm from './views/LoginForm.vue'
+import ShoppingCart from './views/ShoppingCart.vue'
+import RegisterPage from './views/RegisterPage.vue'
 import App from './App.vue'
 import './styles.css'
 
@@ -12,16 +14,28 @@ Vue.config.productionTip = false
 Vue.use(VueForm)
 Vue.use(VueRouter)
 
-const routes = [{
-		path: '/',
-		name: 'home',
-		component: Home
+const routes = [
+		{
+			path: '/',
+			name: 'home',
+			component: Home
 		}, 
 		{
-		path: '/login',
-		name: 'login',
-		component: LoginForm
-		}
+			path: '/login',
+			name: 'login',
+			component: LoginForm
+		},
+		{
+			path: '/shoppingCart',
+			name: 'shoppingCart',
+			component: ShoppingCart
+		},
+		{
+			path: '/registerPage',
+			name: 'registerPage',
+			component: RegisterPage
+
+		},
 	]
 
 const router = new VueRouter({routes, mode: 'history'})

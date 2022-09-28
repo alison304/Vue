@@ -8,14 +8,17 @@
 					</div>
 					<span>MENÚ</span>
 				</div>
-				<div>
+<!-- 				<div>
 					<router-link :to="'/'+page" v-for="(item,i) in items" :key="i" @click="$emit('page',item.page)" class="item-option">
 						{{item.name}}
-						<!-- <div class="icon">
+						<div class="icon">
 							<i class="fa-solid fa-xl" :class="'fa-'+item.icon"></i>
 						</div>
-						<span>{{item.name}}</span> -->
+						<span>{{item.name}}</span>
 					</router-link>
+				</div> -->
+				<div>
+					<router-link to="/shoppingCart">Shopping Cart</router-link>
 				</div>
 				<div class="item-option">
 					<div class="icon">

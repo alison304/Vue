@@ -1,16 +1,32 @@
 <template>
-  <div id="app" class="d-flex flex-row">
-    <!-- <NavBar @page="page = $event" /> -->
-	<router-link to="/">Home</router-link>
-	<router-link to="/login">About</router-link>
-		<div class="container">
-			<div>
-				<h1 class="my- bold text-center">
-					<span class="fa-solid fa-burger"></span>
-					Pedidos Lima Restaurant
-				</h1>
+	<div id="app">
+		<div class="d-flex flex-row">
+		<!-- <NavBar @page="page = $event" /> -->
+		<!-- 	<router-link to="/">Home</router-link>
+		<router-link to="/login">About</router-link> -->
+		<!-- <div class="container"> -->
+			<div class="d-flex position-relative">
+				<img class="flex-shrink-0 me-0" height="150" src="../public/lima_restaurant.png">
 			</div>
-			<router-view></router-view>
+				<!-- <img class="p-2" height="170" src="../public/lima_restaurant.png"> -->
+				<div>
+					<h1 class="bold text-center w-100">
+						Pedidos Lima Restaurant
+					</h1>
+					<div class="container text-center p-3">
+						<div class="row w-100">
+							<div class="col-4">
+								<router-link to="/shoppingCart">ShoppingCart</router-link>
+							</div>
+							<div class="col-4">
+								<router-link to="/login">Login</router-link>
+							</div>	
+							<div class="col-4">
+								<router-link to="/registerPage">Register</router-link>
+							</div>	
+						</div>			
+					</div>
+				</div>
 			<!-- <div v-if="page == 'login'">
 				<LoginForm class="col-12" />
 			</div>
@@ -32,8 +48,10 @@
 					</div>
 				</div>
 			</div> -->
+		<!-- </div> -->
 		</div>
-  </div>
+		<router-view></router-view>		
+	</div>
 </template>
 
 <script>
