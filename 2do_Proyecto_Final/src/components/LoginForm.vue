@@ -29,7 +29,20 @@ export default {
 		return {
 			errors: [],
 			email: '',
-			password: ''
+			password: '',
+			users: 
+			[
+					{
+						email: "morris.alejandro@gmail.com",
+						password: "123456",
+						isAdmin: false
+					},
+					{
+						email: "alison.jpq@gmail.com",
+						password: "123456",
+						isAdmin: true
+					}					
+			]
 	}},
 	methods:{
 		passwordValidator: function (value) {
@@ -61,8 +74,18 @@ export default {
 				this.errors.push("Password must have 6 characters.");
 			}
 			if (!this.errors.length) {
-				console.log('router');
-				this.$router.replace('/shoppingCart');
+				let findUser = this.users.find(x => x.email === this.email);
+				if (findUser !== undefined) {
+					if (findUser.isAdmin) {
+						alert("eres admin")					
+					}
+					else {
+						alert("no eres admin")					
+					}
+					this.$router.replace('/shoppingCart');
+				} else {
+					alert("usuario o login no autorizado");
+				}
 			}
 		},
 		validateEmail(email){

@@ -1,12 +1,12 @@
 <template>
     <div class="container">
 		<form action="" @submit="checkForm">
-			<FormItem v-if="errors.length">
+			<formItem v-if="errors.length">
 				<b>Please correct the following error(s):</b>
 					<div v-for="error in errors" :key="error">
 						{{ error }}
 					</div>
-			</FormItem>
+			</formItem>
 			<br />
 			<div class="row justify-content-center">
 				<div class="col col-6">
@@ -21,11 +21,25 @@
 					<br />
 					<label for="inputEdad" class="form-label text-start">Age</label>
 					<input type="number" class="form-control" id="inputEdad" placeholder="Age" 
-					v-model="age" min="1" max="99"/>
+					v-model="age" min="18" max="99"/>
 					<br />
 					<label for="inputEmail" class="form-label text-start">Email</label>
 					<input type="email" class="form-control" id="inputEmail" placeholder="you@email.com" 
 					v-model="email"/>
+                    <br />
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Admin
+                        </label>
+                    </div>
+                    <br />
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            User
+                        </label>
+                    </div>
 					<br />
 					<hr />
 					<div class="row">
@@ -55,10 +69,8 @@ export default {
 			lastName: "",
 			email: "",
 			age:"",
-			people: [
-
-			],
-
+			people: [],
+            checked: []
 		}
 	},
     methods:{
@@ -107,6 +119,10 @@ export default {
 				return false;
 			}
 		},
+        onReset(event) {
+        event.preventDefault()
+        this.form.checked = []
+        }
     },
 };
 </script>

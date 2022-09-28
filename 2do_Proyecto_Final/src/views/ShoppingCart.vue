@@ -38,38 +38,7 @@
       data() {
           return {
               carrito: [],
-              tiendas: [
-                  {
-                      id: 1,
-                      name: "A la Carta",
-                      products: [
-                          {id: 1,name: "Lomo Saltado",price: 50},						
-                          {id: 2,name: "Trio Marino",price: 100},						
-                          {id: 3,name: "Ají de Pollo",price: 40},						
-                          {id: 4,name: "Arroz Chaufa de Pollo",price: 100},
-                      ],
-                  },
-                  {
-                      id: 2,
-                      name: "Postres & Dulces",
-                      products: [
-                          {id: 5,name: "Picarones",price: 100},
-                          {id: 6,name: "Suspiro Limeño",price: 100},
-                          {id: 7,name: "Mazamorra Morada",price: 100},
-                          {id: 8,name: "Turrón Doña Pepa",price: 100},
-                      ],
-                  },
-                  {
-                      id: 3,
-                      name: "Bebidas, Jugos & Sandwiches",
-                      products: [
-                          {id: 9,name: "Sandwich de jamón y Jugo",price: 100},
-                          {id: 10,name: "Pan con Chicharrón y Café",price: 100},
-                          {id: 11,name: "Triple de Pollo y Papas Fritas",price: 100},
-                          {id: 12,name: "Sandwich de Lomo Saltado",price: 100},
-                      ],
-                  },
-              ],
+              tiendas: []
           };
       },
       computed: {
@@ -95,6 +64,10 @@
               }
           },
       },
+      async beforeMount(){
+        let result = await this.axios.get("https://6334b866ea0de5318a0800ad.mockapi.io/tiendas");
+        this.tiendas = result.data;
+      },      
   };
   </script>
   

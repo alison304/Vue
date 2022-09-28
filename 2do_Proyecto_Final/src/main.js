@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import VueForm from 'vue-form'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import Home from './views/HomeIndex.vue'
 import LoginForm from './views/LoginForm.vue'
 import ShoppingCart from './views/ShoppingCart.vue'
@@ -13,6 +15,7 @@ import './styles.css'
 Vue.config.productionTip = false
 Vue.use(VueForm)
 Vue.use(VueRouter)
+Vue.use(VueAxios, axios)
 
 const routes = [
 		{
