@@ -21,82 +21,81 @@
             </div>
         </div>
     </div>
-  </template>
-  
-  <script>
+</template>
+
+<script>
   // import NavBar from "./components/NavBar.vue";
   // import LoginForm from "./components/LoginForm.vue";
-  import ProductsCard from "../components/ProductsCard.vue";
-  
-  export default {
-      name: "ShoppingCart",
-      components: {
-          ProductsCard,
-          // NavBar,
-          // LoginForm,
-      },
-      data() {
-          return {
-              carrito: [],
-              tiendas: []
-          };
-      },
-      computed: {
-          total() {
-              let res = 0;
-              this.carrito.forEach((item) => {
-                  res += item.product.price * item.count;
-              });
-              return res;
-          },
-      },
-      methods: {
-          addItem(item) {
-              let itemExists = false
-              this.carrito.forEach((listItem) => {
-                  if (listItem.product.id == item.product.id) {
-                      listItem.count += item.sum;
-                      itemExists = true
-                  }
-              });
-              if (!itemExists) {
-                  this.carrito.push({product:item.product,count:1});
-              }
-          },
-      },
-      async beforeMount(){
-        let result = await this.axios.get("https://6334b866ea0de5318a0800ad.mockapi.io/tiendas");
-        this.tiendas = result.data;
-      },      
-  };
-  </script>
-  
-  <style scoped>
-  .border-green {
-    border-top: 2px solid #9fff31;
-  }
-  .total-bouncer {
-      border-radius: 48px;
-      z-index: 99;
-      color: #fff;
-      font-weight: bold;
-      font-size: 32px;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: fit-content;
-  }
-  .tent-logo {
-    width: 100px;
-    border-radius: 12px;
-  }
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /*text-align: center;*/
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-  </style>
-  
+    import ProductsCard from "../components/ProductsCard.vue";
+    
+    export default {
+        name: "ShoppingCart",
+        components: {
+            ProductsCard,
+            // NavBar,
+            // LoginForm,
+        },
+        data() {
+            return {
+                carrito: [],
+                tiendas: []
+            };
+        },
+        computed: {
+            total() {
+                let res = 0;
+                this.carrito.forEach((item) => {
+                    res += item.product.price * item.count;
+                });
+                return res;
+            },
+        },
+        methods: {
+            addItem(item) {
+                let itemExists = false
+                this.carrito.forEach((listItem) => {
+                    if (listItem.product.id == item.product.id) {
+                        listItem.count += item.sum;
+                        itemExists = true
+                    }
+                });
+                if (!itemExists) {
+                    this.carrito.push({product:item.product,count:1});
+                }
+            },
+        },
+        async beforeMount(){
+            let result = await this.axios.get("https://6334b866ea0de5318a0800ad.mockapi.io/tiendas");
+            this.tiendas = result.data;
+        },      
+    };
+</script>
+
+<style scoped>
+    .border-green {
+        border-top: 2px solid #9fff31;
+    }
+    .total-bouncer {
+        border-radius: 48px;
+        z-index: 99;
+        color: #fff;
+        font-weight: bold;
+        font-size: 32px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: fit-content;
+    }
+    .tent-logo {
+        width: 100px;
+        border-radius: 12px;
+    }
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        /*text-align: center;*/
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+</style>

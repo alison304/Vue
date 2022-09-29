@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueForm from 'vue-form'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -13,6 +14,12 @@ import App from './App.vue'
 import './styles.css'
 
 Vue.config.productionTip = false
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+
 Vue.use(VueForm)
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)

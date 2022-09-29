@@ -27,19 +27,13 @@
 					<input type="email" class="form-control" id="inputEmail" placeholder="you@email.com" 
 					v-model="email"/>
                     <br />
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Admin
-                        </label>
-                    </div>
-                    <br />
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            User
-                        </label>
-                    </div>
+					<b-form-checkbox
+						id="checkbox-1"
+						v-model="isAdmin"
+						name="checkbox-1"
+						>
+						Is Admin
+					</b-form-checkbox>
 					<br />
 					<hr />
 					<div class="row">
@@ -70,11 +64,12 @@ export default {
 			email: "",
 			age:"",
 			people: [],
-            checked: []
+            isAdmin: false
 		}
 	},
     methods:{
-		checkForm: function (e) {
+		checkForm: async function (e) {
+			e.preventDefault();
 			this.errors = [];
 			if (!this.name){
 				this.errors.push("Name required.");
@@ -91,20 +86,18 @@ export default {
 				this.errors.push('Valid email required.');
 			}
 			if (!this.errors.length) {
-				this.addPerson();
+				alert(this.isAdmin);
+				let user = {
+					"name": this.name,
+					"lastName": this.lastName,
+					"age": this.age,
+					"email": this.email,
+					"isAdmin": this.isAdmin
+				}
+				await this.axios.post("https://6334b866ea0de5318a0800ad.mockapi.io/users/", user);
+				this.$router.replace('/login');
 			}
-			e.preventDefault();
 		},
-        addPerson(){
-			let person = {
-				name: this.name,
-				lastName: this.lastName,
-				age: this.age,
-				email: this.email,
-			}
-			this.people.push(person);
-			this.cleanFields();
-        },
         cleanFields(){
 			this.name = "";
 			this.lastName = "";			
