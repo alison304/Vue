@@ -74,18 +74,7 @@ export default {
 				this.errors.push("Password must have 6 characters.");
 			}
 			if (!this.errors.length) {
-				let findUser = this.users.find(x => x.email === this.email);
-				if (findUser !== undefined) {
-					if (findUser.isAdmin) {
-						alert("eres admin")					
-					}
-					else {
-						alert("no eres admin")					
-					}
-					this.$router.replace('/shoppingCart');
-				} else {
-					alert("usuario o login no autorizado");
-				}
+				this.validateLogin(this.email);
 			}
 		},
 		validateEmail(email){
@@ -96,6 +85,21 @@ export default {
 				return false;
 			}
 		},
+		validateLogin(email){
+			let findUser = this.users.find(x => x.email === email);
+			if (findUser === undefined) {
+				alert("usuario o login no autorizado");
+			} else {
+				localStorage.isAdmin = findUser.isAdmin;
+				if (findUser.isAdmin) {
+					alert("eres admin")					
+				}
+				else {
+					alert("no eres admin")					
+				}
+				this.$router.replace('/shoppingCart');
+			}
+		},		
 	},
 };
 </script>
