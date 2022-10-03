@@ -9,16 +9,9 @@
 -----------------------
 ## About
 
-Developed in VUE CLI 2, it is a validator test.
+# Developed in VUE CLI 2, it is a validator test.
 
 -----------------------
-## Project settings
-
-# UI Test Componentes con el comando : npm run test:unit
-# UI Api Testing : npm run test
-
-# vue-cli-mocha
-
 ## Project setup
 ```
 npm install
@@ -37,6 +30,9 @@ npm run build
 ```
 npm run lint
 ```
+ UI Test Componentes con el comando : npm run test:unit
+
+ UI Api Testing : npm run test
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
