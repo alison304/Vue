@@ -7,11 +7,6 @@
 - Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
 
 -----------------------
-## About
-
-# Developed in VUE CLI 2, it is a validator test.
-
------------------------
 ## Project setup
 ```
 npm install
@@ -30,9 +25,13 @@ npm run build
 ```
 npm run lint
 ```
- UI Test Componentes con el comando : npm run test:unit
-
- UI Api Testing : npm run test
-
+### UI Test Components 
+```
+ npm run test:unit
+```
+ ### UI Api Testing 
+ ```
+ npm run test
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
