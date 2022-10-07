@@ -40,8 +40,6 @@
 			</div>
 			<br />
 		</form>
-		<br />
-		<b-table striped hover :items="people"></b-table>
 	</div>
 </template>
 <script>
@@ -55,10 +53,6 @@ export default {
 			lastName: "",
 			email: "",
 			age:"",
-			people: [
-
-			],
-
 		}
 	},
     methods:{
@@ -90,7 +84,7 @@ export default {
 				age: this.age,
 				email: this.email,
 			}
-			this.people.push(person);
+			this.$store.dispatch('create',person);
 			this.cleanFields();
         },
         cleanFields(){

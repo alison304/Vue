@@ -28,7 +28,14 @@ export default new Vuex.Store({
             await axios.get(url).then((response) => {
                 commit('setUsers',response.data)
             })
-        }
+        },
+        async create({
+            commit
+        }, data) {
+            await axios.post(url,data).then((response) => {
+                console.log('response.data',response.data);
+            })
+        },        
     },
     modules: {}
 })
