@@ -8,10 +8,6 @@
 - Linkedin: [https://www.linkedin.com/in/alison-janise-paico-quispe/]
 
 -----------------------
-## Acerca del proyecto 🍴
-
-Desarrollado en VUE CLI 2
-
 ## Configuración del proyecto
 ```
 - Instalar dependencias ---- npm install
